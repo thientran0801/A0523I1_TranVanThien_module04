@@ -1,11 +1,11 @@
 gradle:
-
- implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
-    implementation group: 'org.springframework', name: 'spring-core', version: '4.3.17.RELEASE'
-    implementation group: 'org.springframework', name: 'spring-context', version: '4.3.17.RELEASE'
-    implementation group: 'org.springframework', name: 'spring-beans', version: '4.3.17.RELEASE'
-    implementation group: 'org.springframework', name: 'spring-web', version: '4.3.17.RELEASE'
-    implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.17.RELEASE'
+ 	implementation group: 'jstl', name: 'jstl', version: '1.2'
+	implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    	implementation group: 'org.springframework', name: 'spring-core', version: '4.3.17.RELEASE'
+   	 implementation group: 'org.springframework', name: 'spring-context', version: '4.3.17.RELEASE'
+ 	 implementation group: 'org.springframework', name: 'spring-beans', version: '4.3.17.RELEASE'
+ 	 implementation group: 'org.springframework', name: 'spring-web', version: '4.3.17.RELEASE'
+ 	 implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.17.RELEASE'
 
 
 -----------------------------------------------------------------------------------------------------------------
@@ -20,6 +20,7 @@ applicationContext.xml:
 
 -----------------------------------------------------------------------------------------------------------------
 dispatcher-servlet.xml:
+
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -82,7 +83,7 @@ web.xml:
         <!-- 1 nghia la load tai thoi diem khoi dong server, neu khong cai dat hoac = 0 thi se load khi co request goi toi severlet-->
     </servlet>
     <servlet-mapping>
-        <servlet-name>dispatcher</servlet-name>
+        <servlet-name>dispatcher</servlet-name>   
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
