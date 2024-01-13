@@ -15,14 +15,15 @@
     <mvc:annotation-driven/>
 
     <!--Khai bao vi tri dat view, duoi file cua view-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+<!--    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".jsp"/>
-    </bean>
+    </bean>-->
 
-<!--    <bean id="viewResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
+    <bean id="viewResolver" class="org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver">
         <property name="prefix" value="/WEB-INF/views/"/>
         <property name="suffix" value=".html"/>
+        <property name="characterEncoding" value="UTF-8"/>
     </bean>
 
     <bean id="engine" class="org.thymeleaf.spring4.SpringTemplateEngine">
@@ -31,5 +32,6 @@
 
     <bean class="org.thymeleaf.spring4.view.ThymeleafViewResolver">
         <property name="templateEngine" ref="engine"/>
-    </bean>-->
+        <property name="characterEncoding" value="UTF-8"/>
+    </bean>
 </beans>

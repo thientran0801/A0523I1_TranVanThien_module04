@@ -1,0 +1,32 @@
+	
+ss03
+xmlns:th="http://www.thymeleaf.org"
+
+implementation group: 'org.thymeleaf', name: 'thymeleaf-spring4', version: '3.0.9.RELEASE'
+implementation group: 'nz.net.ultraq.thymeleaf', name: 'thymeleaf-layout-dialect', version: '1.2'
+
+<property name="characterEncoding" value="UTF-8"/>
+
+
+ss05:
+
+implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.4.3.Final'
+implementation group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+implementation group: 'org.hibernate', name: 'hibernate-entitymanager', version: '5.3.0.Final'
+implementation group: 'org.springframework', name: 'spring-orm', version: '4.3.17.RELEASE'
+implementation group: 'org.springframework.data', name: 'spring-data-jpa', version: '2.2.13.RELEASE'
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
