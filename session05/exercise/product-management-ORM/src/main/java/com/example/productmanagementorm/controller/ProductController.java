@@ -62,6 +62,7 @@ public class ProductController {
         ModelAndView modelAndView = new ModelAndView("home", "list", list);
         return modelAndView;
     }
+
     @GetMapping("/view/{id}")
     public String view(@PathVariable int id, Model model) {
         model.addAttribute("product", service.findById(id));
