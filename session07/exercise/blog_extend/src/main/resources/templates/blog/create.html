@@ -9,16 +9,16 @@
 </head>
 <body>
 <h1>Add new blog:</h1>
-<form th:action="@{/save}" method="post" th:object="${blog}" enctype="multipart/form-data">
+<form th:action="@{/blog/save}" method="post" th:object="${blog}">
     <table>
         <tr>
             <td>Title:</td>
             <td><input type="text" th:field="*{title}"></td>
         </tr>
-        <tr>
+<!--        <tr>
             <td>Date create:</td>
             <td><input type="date" th:field="*{dateCreate}"></td>
-        </tr>
+        </tr>-->
         <tr>
             <td>Author:</td>
             <td><input type="text" name="author" th:field="*{author}"></td>
@@ -28,8 +28,10 @@
             <td><textarea name="content" th:field="*{content}" cols="50" rows="10"></textarea></td>
         </tr>
         <tr>
-            <td>Image:</td>
-            <td><input name="file" type="file"></td>
+            <td>category:</td>
+            <td><select th:field="*{category}">
+                <option th:each="cate: ${listCategory}" th:value="${cate.id}" th:text="${cate.categoryName}"></option>
+            </select></td>
         </tr>
         <tr>
             <td></td>

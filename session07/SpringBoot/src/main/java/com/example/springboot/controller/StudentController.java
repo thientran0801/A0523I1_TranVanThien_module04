@@ -44,7 +44,7 @@ public class StudentController {
             listPage.add(i);
         }
         model.addAttribute("pages",listPage);
-        return new ModelAndView("/list", "list",iStudentService.findAll(pageable));
+            return new ModelAndView("/list", "list",iStudentService.findAll(pageable));
     }
 
     @GetMapping("/show-form-create")

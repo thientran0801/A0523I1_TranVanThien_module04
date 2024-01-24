@@ -2,33 +2,32 @@ package com.example.blog.model;
 
 import jakarta.persistence.*;
 
-import java.sql.Date;
+import java.util.Date;
 
 @Entity
 public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private Date dateCreate;
     private String title;
     @Column(columnDefinition = "LONGTEXT")
     private String content;
     private String author;
-    @Lob
-    @Column(columnDefinition = "LONGBLOB")
-    private String image;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
 
     public Blog() {
     }
 
-    public Blog(Long id, Date dateCreate, String title, String content, String author, String image) {
+    public Blog(Long id, Date dateCreate, String title, String content, String author) {
         this.dateCreate = dateCreate;
         this.id = id;
         this.title = title;
         this.content = content;
         this.author = author;
-        this.image = image;
     }
 
     public Long getId() {
@@ -71,11 +70,11 @@ public class Blog {
         this.author = author;
     }
 
-    public String getImage() {
-        return image;
+    public Category getCategory() {
+        return category;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }

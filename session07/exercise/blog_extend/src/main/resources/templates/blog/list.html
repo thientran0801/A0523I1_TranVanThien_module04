@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+          crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+            crossorigin="anonymous"></script>
+</head>
+<body>
+<h3 style="color:red;" th:text="${message}"></h3>
+<p><a th:href="@{/blog/create}">Create a new blog...</a></p>
+<table class=" table table-striped">
+    <tr>
+        <th>STT</th>
+        <th>Date create</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Category</th>
+        <th colspan="2">Edit</th>
+    </tr>
+    <tr th:each="blog, loop: ${blogPage}">
+
+        <td th:text="${loop.count}"></td>
+        <td th:text="${blog.dateCreate}"></td>
+        <td><a th:href="@{/blog/view/{id}(id=${blog.id})}" th:text="${blog.title}"></a></td>
+        <td th:text="${blog.author}"></td>
+        <td th:text="${blog.category.categoryName}"></td>
+
+        <td><a th:href="@{/blog/delete/{id} (id = ${blog.id})}">Delete</a></td>
+        <td><a th:href="@{/blog/update/{id} (id = ${blog.id})}">Update</a></td>
+    </tr>
+</table>
+<div class="text-center" th:unless="${blogPage.isEmpty()}">
+    <a th:href="@{/blog/list(page=${blogPage.number -1})}" th:if="${blogPage.hasPrevious()}" >Prev</a>
+    <span th:text="${blogPage.number}+1"></span>/ <span th:text="${blogPage.totalPages}"></span>
+    <a th:href="@{/blog/list(page=${blogPage.number +1})}" th:if="${blogPage.hasNext()}" >Next</a>
+</div>
+</body>
+</html>

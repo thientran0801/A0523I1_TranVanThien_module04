@@ -13,26 +13,18 @@
 </head>
 <body>
 <h3 style="color:red;" th:text="${message}"></h3>
-<p><a th:href="@{/create}">Create a new blog...</a></p>
+<p><a th:href="@{/category/create}">Create a new Category...</a></p>
 <table class=" table table-striped">
     <tr>
         <th>STT</th>
-        <th>Date create</th>
-        <th>Title</th>
-        <th>Author</th>
-        <th>Image</th>
-        <th colspan="2">Edit</th>
+        <th>Category Name</th>
+        <th th:align="center" colspan="2">Update</th>
     </tr>
-    <tr th:each="blog, loop: ${list}">
+    <tr th:each="category, loop: ${list}">
         <td th:text="${loop.count}"></td>
-        <td th:text="${blog.dateCreate}"></td>
-        <td><a th:href="@{/view/{id}(id=${blog.id})}" th:text="${blog.title}"></a></td>
-        <td th:text="${blog.author}"></td>
-        <td scope="row">
-            <img th:src="@{'data:image/jpeg;base64,' + ${blog.image}}" style="width: 50px; height: 50px" alt="image">
-        </td>
-        <td><a th:href="@{/delete/{id} (id = ${blog.id})}">Delete</a></td>
-        <td><a th:href="@{/update/{id} (id = ${blog.id})}">Update</a></td>
+        <td><a th:href="@{/category/view/{id}(id=${category.id})}" th:text="${category.categoryName}"></a></td>
+        <td><a th:href="@{/category/delete/{id} (id = ${category.id})}">Delete</a></td>
+        <td><a th:href="@{/category/update/{id} (id = ${category.id})}">Update</a></td>
     </tr>
 </table>
 </body>
