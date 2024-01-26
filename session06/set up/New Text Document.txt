@@ -4,9 +4,16 @@ implementation 'org.springframework.boot:spring-boot-starter-web'
 developmentOnly 'org.springframework.boot:spring-boot-devtools'
 runtimeOnly 'com.mysql:mysql-connector-j'
 
+SS06: JPA 
 
-spring.datasource.url=jdbc:mysql://localhost:3306/demo_jpa?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
+=> application.properties:
+spring.datasource.url=jdbc:mysql://localhost:3306/NAME_DB?createDatabaseIfNotExist=true&allowPublicKeyRetrieval=true&useSSL=false
 spring.datasource.username=root
 spring.datasource.password=Thien0801*
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+
+
+SS08:  VALIDATION
+ => import vào dependencies:
+	 implementation 'org.springframework.boot:spring-boot-starter-validation'

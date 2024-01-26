@@ -1,7 +1,6 @@
 package com.example.blog.controller;
 
 import com.example.blog.model.Blog;
-import com.example.blog.model.Category;
 import com.example.blog.service.blog.IBlogService;
 import com.example.blog.service.category.ICategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/blog")
@@ -72,6 +72,16 @@ public class BlogController {
         Blog blog = blogService.findById(id);
         ModelAndView modelAndView = new ModelAndView("blog/update", "blog", blog);
         modelAndView.addObject("listCategory", categoryService.showList());
+        return modelAndView;
+    }
+
+    @PostMapping("/findbykey")
+    public ModelAndView findByKey(@RequestParam(defaultValue = "0", required = false) int page,
+                                  @RequestParam String keyword) {
+        Sort sort = Sort.by("title");
+        Pageable pageable = PageRequest.of(page,Integer.MAX_VALUE);
+        Page<Blog> blogPage = blogService.findByKey(keyword, pageable);
+        ModelAndView modelAndView = new ModelAndView("blog/list", "blogPage", blogPage);
         return modelAndView;
     }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 public interface IBlogService {
     void save(Blog blog);
 
-    //    void update(Blog blog);
+    Page<Blog> findByKey(String keyword, Pageable pageable);
     List<Blog> showList();
     Page<Blog> findAll(Pageable pageable);
 

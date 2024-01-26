@@ -12,6 +12,16 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+        <form class="d-flex" role="search" th:action="@{/blog/findbykey}" method="post">
+            <input class="form-control me-2" type="search" name="keyword" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+
 <h3 style="color:red;" th:text="${message}"></h3>
 <p><a th:href="@{/blog/create}">Create a new blog...</a></p>
 <table class=" table table-striped">
@@ -38,7 +48,7 @@
 <div class="text-center" th:unless="${blogPage.isEmpty()}">
     <a th:href="@{/blog/list(page=${blogPage.number -1})}" th:if="${blogPage.hasPrevious()}" >Prev</a>
     <span th:text="${blogPage.number}+1"></span>/ <span th:text="${blogPage.totalPages}"></span>
-    <a th:href="@{/blog/list(page=${blogPage.number +1})}" th:if="${blogPage.hasNext()}" >Next</a>
+    <a th:href="@{/blog/list(page=${blogPage.number +1})}" th:if="${blogPage.hasNext()}">Next</a>
 </div>
 </body>
 </html>
