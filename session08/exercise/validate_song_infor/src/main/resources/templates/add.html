@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/save}" method="post" th:object="${song}">
+    <fieldset>
+        <legend>Song information</legend>
+        <table>
+            <tr>
+                <td><label th:for="name">Name: </label></td>
+                <td><input type="text" th:field="*{name}" id="name"></td>
+                <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></td>
+            </tr>
+            <tr>
+                <td><label th:for="singer">Singer: </label></td>
+                <td><input type="text" th:field="*{singer}" id="singer"></td>
+                <td th:if="${#fields.hasErrors('singer')}" th:errors="*{singer}"></td>
+
+            </tr>
+            <tr>
+                <td><label th:for="type">Type: </label></td>
+                <td><input type="text" th:field="*{type}" id="type"></td>
+                <td th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit"></td>
+            </tr>
+        </table>
+    </fieldset>
+</form>
+</body>
+</html>

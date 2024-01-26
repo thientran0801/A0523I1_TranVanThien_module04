@@ -31,7 +31,8 @@ public class UserController {
         }
         userService.add(user);
         List<User> list = userService.showList();
-        ModelAndView modelAndView = new ModelAndView("list", "list", list);
-        return modelAndView;
+//        ModelAndView modelAndView = new ModelAndView("list", "list", list);
+//        return modelAndView;
+        return new ModelAndView("list");
     }
 }
