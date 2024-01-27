@@ -30,7 +30,7 @@ public class SongController {
         return modelAndView;
     }
 
-/*    @PostMapping("/save")
+    @PostMapping("/save")
     public String save(@Validated @ModelAttribute("song") Song song, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("song", song);
@@ -40,10 +40,10 @@ public class SongController {
             redirectAttributes.addFlashAttribute("message", "Updated");
             return "redirect:/";
         }
-    }*/
+    }
 
-    @PostMapping("/save")
-    public String save(@Validated @ModelAttribute("song") Song song, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+    @PostMapping("/update")
+    public String update(@Validated @ModelAttribute("song") Song song, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("song", song);
             return "update";
