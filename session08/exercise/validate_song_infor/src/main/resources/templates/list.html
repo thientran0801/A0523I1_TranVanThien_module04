@@ -12,7 +12,7 @@
             crossorigin="anonymous"></script>
 </head>
 <body>
-<h5 style="color:red;" th:text="${message}"></h5>
+<h5 style="color:red;" th:text="${message}" th:un="${message}"></h5>
 <p><a th:href="@{/create}">create a new song</a></p>
 <table class="table table-striped">
     <tr>
