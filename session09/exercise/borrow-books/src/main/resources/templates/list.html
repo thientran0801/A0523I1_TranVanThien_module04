@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:td="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -31,7 +31,12 @@
         <td th:text="*{book.id}"></td>
         <td><a th:href="@{/view/{id} (id=${book.id})}" th:text="${book.name}"></a></td>
         <td th:text="${book.quantity}"></td>
-        <td th:text="${#strings.toString(book.listCodeBorrow)}"></td>
+        <td>
+            <td:block th:each="code: ${book.listCodeBorrow}">
+                <span th:text="${code}+' '"></span>
+            </td:block>
+        </td>
+<!--        <td th:text="${#strings.toString(book.listCodeBorrow)}"></td>-->
     </tr>
 </table>
 <div class="text-center" th:unless="${bookPage.isEmpty()}">
