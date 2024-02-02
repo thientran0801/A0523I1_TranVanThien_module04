@@ -59,8 +59,12 @@ public class BookController {
         }
         book.setQuantity(quanlity);
         String codeBorrow = String.format("%05d", new Random().nextInt(100000));
-
-        List<String> list = new ArrayList<>(book.getListCodeBorrow());
+        List<String> list;
+        if (book.getListCodeBorrow()  == null) {
+            list = new ArrayList<>();
+        }else {
+            list = new ArrayList<>(book.getListCodeBorrow());
+        }
         list.add(codeBorrow);
         book.setListCodeBorrow(list);
 
