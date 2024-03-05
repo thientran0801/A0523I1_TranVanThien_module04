@@ -13,7 +13,7 @@ import java.util.regex.Pattern;
 @Controller
 public class CheckMailController {
     private static final String REGEX = "^[A_Za-z0-9]+[A-Za-z0-9]*@[A-Za-z0-9]+(\\.[A-Za-z0-9]+)$";
-/*    private static Pattern pattern;
+/*    private static Pattern pattern;0
     private Matcher matcher;
 
     public CheckMailController() {

@@ -1,0 +1,18 @@
+SS01: dependencies (GRADLE): 
+    implementation group: 'javax.servlet', name: 'javax.servlet-api', version: '3.1.0'
+    implementation group: 'org.springframework', name: 'spring-core', version: '4.3.17.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-context', version: '4.3.17.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-beans', version: '4.3.17.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-web', version: '4.3.17.RELEASE'
+    implementation group: 'org.springframework', name: 'spring-webmvc', version: '4.3.17.RELEASE'
+
+- DÙNG TOMCAT 9
+
+
+SS04:  JSP chèn vào 2 oòng sau
+  <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+  <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+SS03: link thymeleaf: 
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">

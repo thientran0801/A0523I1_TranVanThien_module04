@@ -3,7 +3,7 @@ package vn.codegym.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vn.codegym.model.Student;
-import vn.codegym.service.repository.IStudentRepository;
+import vn.codegym.repository.IStudentRepository;
 
 import java.util.List;
 
