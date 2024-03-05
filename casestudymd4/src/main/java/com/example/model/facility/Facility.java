@@ -3,14 +3,6 @@ package com.example.model.facility;
 import jakarta.persistence.*;
 
 import java.util.List;
-
-//Tất cả các dịch vụ này sẽ bao có các thông tin: Tên dịch vụ (name), Diện tích sử dụng (area), Chi phí thuê (cost)
-// , Số lượng người tối đa (max_people), Kiểu thuê (rent_type_id, bao gồm thuê theo năm, tháng, ngày, giờ).
-//•	Riêng Villa sẽ có thêm thông tin: Tiêu chuẩn phòng (standard_room), Mô tả tiện nghi khác (description_other_convenience),
-// Diện tích hồ bơi (pool_area), Số tầng (number_of_floors).
-//•	Riêng House sẽ có thêm thông tin: Tiêu chuẩn phòng (standard_room), Mô tả tiện nghi khác (description_other_convenience),
-// Số tầng (number_of_floors).
-//•	Riêng Room sẽ có thêm thông tin: Dịch vụ miễn phí đi kèm (facility_free).
 @Entity
 public class Facility {
     @Id
