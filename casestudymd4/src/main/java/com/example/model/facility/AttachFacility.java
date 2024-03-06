@@ -1,6 +1,6 @@
 package com.example.model.facility;
 
-import com.example.model.ContractDetail;
+import com.example.model.contract.ContractDetail;
 import jakarta.persistence.*;
 
 import java.util.List;

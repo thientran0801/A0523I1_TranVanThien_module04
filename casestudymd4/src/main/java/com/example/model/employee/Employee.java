@@ -1,6 +1,6 @@
 package com.example.model.employee;
 
-import com.example.model.Contract;
+import com.example.model.contract.Contract;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
@@ -27,9 +27,9 @@ public class Employee {
     @JoinColumn(name = "education_degree_id")
     private EducationDegree educationDegree;
 
-    @ManyToOne
+/*    @ManyToOne
     @JoinColumn(name = "username")
-    private User userName;
+    private User userName;*/
 
     @OneToOne
     @JoinColumn(name = "user_id")
@@ -41,7 +41,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Long id, String name, String phone, String email, String id_card, String address, LocalDate date_of_birth, double salary, Position position, Division division, EducationDegree educationDegree, User userName, User user, List<Contract> contractList) {
+    public Employee(Long id, String name, String phone, String email, String id_card, String address, LocalDate date_of_birth, double salary, Position position, Division division, EducationDegree educationDegree, User user, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -53,40 +53,8 @@ public class Employee {
         this.position = position;
         this.division = division;
         this.educationDegree = educationDegree;
-        this.userName = userName;
         this.user = user;
         this.contractList = contractList;
-    }
-
-    public Employee(Long id, String name, String phone, String email, String id_card, String address, LocalDate date_of_birth, double salary, Position position, Division division, EducationDegree education_degree, User userName, User user) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.id_card = id_card;
-        this.address = address;
-        this.date_of_birth = date_of_birth;
-        this.salary = salary;
-        this.position = position;
-        this.division = division;
-        this.educationDegree = education_degree;
-        this.userName = userName;
-        this.user = user;
-    }
-
-    public Employee(Long id, String name, String phone, String email, String id_card, String address, LocalDate date_of_birth, double salary, Position position, Division division, EducationDegree education_degree, User userName) {
-        this.id = id;
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.id_card = id_card;
-        this.address = address;
-        this.date_of_birth = date_of_birth;
-        this.salary = salary;
-        this.position = position;
-        this.division = division;
-        this.educationDegree = education_degree;
-        this.userName = userName;
     }
 
     public Long getId() {
@@ -177,14 +145,6 @@ public class Employee {
         this.educationDegree = education_degree;
     }
 
-    public User getUserName() {
-        return userName;
-    }
-
-    public void setUserName(User userName) {
-        this.userName = userName;
-    }
-
     public User getUser() {
         return user;
     }
@@ -200,4 +160,5 @@ public class Employee {
     public void setContractList(List<Contract> contractList) {
         this.contractList = contractList;
     }
+
 }

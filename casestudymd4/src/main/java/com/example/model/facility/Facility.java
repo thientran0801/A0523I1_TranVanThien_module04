@@ -1,5 +1,6 @@
 package com.example.model.facility;
 
+import com.example.model.contract.Contract;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -23,12 +24,12 @@ public class Facility {
     private FacilityType facilityType;
 
     @OneToMany(mappedBy = "facility", cascade = CascadeType.ALL)
-    private List<Facility> facilityList;
+    private List<Contract> contractList;
 
     public Facility() {
     }
 
-    public Facility(Long id, String name, String standard_room, String facility_free, double area, double cost, double pool_area, int max_people, int number_of_floors, String description_other_convenience, RentType rentType, FacilityType facilityType, List<Facility> facilityList) {
+    public Facility(Long id, String name, String standard_room, String facility_free, double area, double cost, double pool_area, int max_people, int number_of_floors, String description_other_convenience, RentType rentType, FacilityType facilityType, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.standard_room = standard_room;
@@ -41,7 +42,7 @@ public class Facility {
         this.description_other_convenience = description_other_convenience;
         this.rentType = rentType;
         this.facilityType = facilityType;
-        this.facilityList = facilityList;
+        this.contractList = contractList;
     }
 
     public Long getId() {
@@ -140,11 +141,11 @@ public class Facility {
         this.facilityType = facilityType;
     }
 
-    public List<Facility> getFacilityList() {
-        return facilityList;
+    public List<Contract> getContractList() {
+        return contractList;
     }
 
-    public void setFacilityList(List<Facility> facilityList) {
-        this.facilityList = facilityList;
+    public void setContractList(List<Contract> contractList) {
+        this.contractList = contractList;
     }
 }

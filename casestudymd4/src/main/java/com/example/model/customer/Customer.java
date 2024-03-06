@@ -1,6 +1,6 @@
 package com.example.model.customer;
 
-import com.example.model.Contract;
+import com.example.model.contract.Contract;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;

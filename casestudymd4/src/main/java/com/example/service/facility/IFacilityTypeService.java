@@ -1,4 +1,4 @@
 package com.example.service.facility;
 
-public interface FacilityService {
+public interface IFacilityTypeService {
 }

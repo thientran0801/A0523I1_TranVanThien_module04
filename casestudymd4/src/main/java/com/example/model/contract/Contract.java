@@ -1,4 +1,4 @@
-package com.example.model;
+package com.example.model.contract;
 
 import com.example.model.customer.Customer;
 import com.example.model.employee.Employee;
