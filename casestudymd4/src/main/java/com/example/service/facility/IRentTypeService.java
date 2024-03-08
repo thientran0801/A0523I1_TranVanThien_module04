@@ -1,4 +1,7 @@
 package com.example.service.facility;
 
-public interface IRentTypeService {
+import com.example.model.facility.RentType;
+import com.example.service.IService;
+
+public interface IRentTypeService extends IService<RentType> {
 }

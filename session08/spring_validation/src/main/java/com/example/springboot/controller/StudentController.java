@@ -71,6 +71,7 @@ public class StudentController {
         // Chuyển đổi dữ liệu từ DTO -> Entity
         BeanUtils.copyProperties(student,s);
         s.setCodeGymClass(codegymClass);
+
         iStudentService.addNewStudent(s);
         return "redirect:/";
     }

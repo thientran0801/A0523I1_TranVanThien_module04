@@ -3,7 +3,7 @@ package com.example.model.employee;
 import com.example.model.contract.Contract;
 import jakarta.persistence.*;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -13,7 +13,7 @@ public class Employee {
     private Long id;
 
     private String name, phone, email,id_card, address;
-    private LocalDate date_of_birth;
+    private Date date_of_birth;
     private double salary;
     @ManyToOne
     @JoinColumn(name = "position_id")
@@ -41,7 +41,7 @@ public class Employee {
     public Employee() {
     }
 
-    public Employee(Long id, String name, String phone, String email, String id_card, String address, LocalDate date_of_birth, double salary, Position position, Division division, EducationDegree educationDegree, User user, List<Contract> contractList) {
+    public Employee(Long id, String name, String phone, String email, String id_card, String address, Date date_of_birth, double salary, Position position, Division division, EducationDegree educationDegree, User user, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.phone = phone;
@@ -105,11 +105,11 @@ public class Employee {
         this.address = address;
     }
 
-    public LocalDate getDate_of_birth() {
+    public Date getDate_of_birth() {
         return date_of_birth;
     }
 
-    public void setDate_of_birth(LocalDate date_of_birth) {
+    public void setDate_of_birth(Date date_of_birth) {
         this.date_of_birth = date_of_birth;
     }
 

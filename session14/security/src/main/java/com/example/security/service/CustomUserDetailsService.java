@@ -25,7 +25,7 @@ public class CustomUserDetailsService implements UserDetailsService {
         if (user != null) {
             // Vì giảng viên code gà nên đặt trùng tên.
             List<SimpleGrantedAuthority> list = new ArrayList<>();
-            for (Role role: user.getRoles()) {
+            for (Role role : user.getRoles()) {
                 list.add(new SimpleGrantedAuthority(role.getName()));
             }
             return new org.springframework.security.core.userdetails.User(user.getEmail()

@@ -2,17 +2,30 @@ package com.example.model.customer;
 
 import com.example.model.contract.Contract;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Entity
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String name, id_card, phone, email, address;
-    private LocalDate day_of_birth;
+    @NotBlank(message = "The customer's name must not be empty")
+    private String name;
+    @Pattern(regexp = "^\\d{9}(\\d{3}?)$", message = "Please re-enter !")
+    private String id_card;
+    @Pattern(regexp = "^0\\d{9}?$", message = "ID card includes 9 or 12 numbers !")
+    private String phone;
+    @Pattern(regexp = "^.*@gmail.com$", message = "Re-enter: **********@gmail.com")
+    private String email;
+    @NotBlank(message = "not null")
+    private String address;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date day_of_birth;
     private boolean gender;
     @ManyToOne
     @JoinColumn(name = "customer_type_id")
@@ -24,7 +37,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(Long id, String name, String id_card, String phone, String email, String address, LocalDate day_of_birth, boolean gender, CustomerType customerType, List<Contract> contractList) {
+    public Customer(Long id, String name, String id_card, String phone, String email, String address, Date day_of_birth, boolean gender, CustomerType customerType, List<Contract> contractList) {
         this.id = id;
         this.name = name;
         this.id_card = id_card;
@@ -35,18 +48,6 @@ public class Customer {
         this.gender = gender;
         this.customerType = customerType;
         this.contractList = contractList;
-    }
-
-    public Customer(Long id, String name, String id_card, String phone, String email, String address, LocalDate day_of_birth, boolean gender, CustomerType customerType) {
-        this.id = id;
-        this.name = name;
-        this.id_card = id_card;
-        this.phone = phone;
-        this.email = email;
-        this.address = address;
-        this.day_of_birth = day_of_birth;
-        this.gender = gender;
-        this.customerType = customerType;
     }
 
     public Long getId() {
@@ -97,11 +98,11 @@ public class Customer {
         this.address = address;
     }
 
-    public LocalDate getDay_of_birth() {
+    public Date getDay_of_birth() {
         return day_of_birth;
     }
 
-    public void setDay_of_birth(LocalDate day_of_birth) {
+    public void setDay_of_birth(Date day_of_birth) {
         this.day_of_birth = day_of_birth;
     }
 

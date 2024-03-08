@@ -1,4 +1,7 @@
 package com.example.service.employee;
 
-public interface IEducationDegreeService {
+import com.example.model.employee.EducationDegree;
+import com.example.service.IService;
+
+public interface IEducationDegreeService extends IService<EducationDegree> {
 }

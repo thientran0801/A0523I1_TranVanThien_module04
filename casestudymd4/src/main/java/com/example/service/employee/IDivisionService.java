@@ -1,4 +1,7 @@
 package com.example.service.employee;
 
-public interface IDivisionService {
+import com.example.model.employee.Division;
+import com.example.service.IService;
+
+public interface IDivisionService extends IService<Division> {
 }
