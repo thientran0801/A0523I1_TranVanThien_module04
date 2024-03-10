@@ -13,15 +13,15 @@ public class Song {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @NotBlank
-    @Size(max = 800, message = "Only enter a maximum of 800 characters !")
+    @Size(max = 10, message = "Only enter a maximum of 10 characters !")
     @Pattern(regexp =  "^[A-Za-z]+(\\s[A-Za-z]+)*$", message = "Not contain special characters !")
     private String name;
     @NotBlank
-    @Size(max = 300, message = "Only enter a maximum of 300 characters !")
+    @Size(max = 15, message = "Only enter a maximum of 15 characters !")
     @Pattern(regexp =  "^[A-Za-z]+(\\s[A-Za-z]+)*$", message = "Not contain special characters !")
     private String singer;
     @NotBlank
-    @Size(max = 1000, message = "Only enter a maximum of 1000 characters !")
+    @Size(max = 15, message = "Only enter a maximum of 15 characters !")
     @Pattern(regexp =  "^[A-Za-z]+(\\s[A-Za-z]+)*$", message = "Not contain special characters !")
     private String type;
 

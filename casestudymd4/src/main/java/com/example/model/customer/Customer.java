@@ -2,8 +2,6 @@ package com.example.model.customer;
 
 import com.example.model.contract.Contract;
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
@@ -14,15 +12,10 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotBlank(message = "The customer's name must not be empty")
     private String name;
-    @Pattern(regexp = "^\\d{9}(\\d{3}?)$", message = "Please re-enter !")
     private String id_card;
-    @Pattern(regexp = "^0\\d{9}?$", message = "ID card includes 9 or 12 numbers !")
     private String phone;
-    @Pattern(regexp = "^.*@gmail.com$", message = "Re-enter: **********@gmail.com")
     private String email;
-    @NotBlank(message = "not null")
     private String address;
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date day_of_birth;

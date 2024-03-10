@@ -43,14 +43,18 @@
     <div class="col-12">
         <label for="inputAddress" class="form-label">Address</label>
         <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St" th:field="*{address}">
+        <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}"></p>
     </div>
     <div class="col-6">
         <label for="mail" class="form-label">Email</label>
         <input type="text" class="form-control" id="mail" placeholder="...@gmail.com" th:field="*{email}">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+
     </div>
     <div class="col-md-2">
         <label for="dob" class="form-label">Date of birth</label>
         <input type="date" class="form-control" id="dob" th:field="*{day_of_birth}">
+        <p th:if="${#fields.hasErrors('day_of_birth')}" th:errors="*{day_of_birth}"></p>
     </div>
     <div class="col-md-4">
         <label for="type" class="form-label">Type customer</label>

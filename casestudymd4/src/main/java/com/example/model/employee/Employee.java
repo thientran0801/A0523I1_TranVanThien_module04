@@ -31,8 +31,8 @@ public class Employee {
     @JoinColumn(name = "username")
     private User userName;*/
 
-    @OneToOne
-    @JoinColumn(name = "user_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_id", referencedColumnName = "user_name")
     private User user;
 
     @OneToMany(mappedBy = "employee", cascade = CascadeType.ALL)

@@ -14,7 +14,6 @@ public class StudentDTO implements Validator {
     @Size(max = 10, message = "< 10 characters")
     @Pattern(regexp = "^[a-z ]*$", message = "only contain character")
     private String name;
-    @Size(min = 5, message = "{email.min}")
     private String email;
     private Long codeGymClass;
 
@@ -65,7 +64,7 @@ public class StudentDTO implements Validator {
         if ("".equals(email)) {
             errors.rejectValue("email", "", "Can not be empty");
         } else if (email.length() < 5) {
-            errors.rejectValue("email", "email.min");
+            errors.rejectValue("email", "email.min");//email.min = > 5 characters
         }
     }
 }

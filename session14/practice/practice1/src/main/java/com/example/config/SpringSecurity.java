@@ -1,4 +1,4 @@
-package com.example.security.config;
+package com.example.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -34,7 +34,7 @@ public class SpringSecurity {
                         .anyRequest().authenticated()
                 )
                 .formLogin((form) -> form
-                        .loginPage("/login") // URL của trang đang nhập
+                        .loginPage("/login").loginPage("/") // URL của trang đang nhập
                         .loginProcessingUrl("/login") // xử lý đăng nhập tự động
                         .defaultSuccessUrl("/user/") // URL mặc định sau khi đăng nhập thành công
                         .permitAll()

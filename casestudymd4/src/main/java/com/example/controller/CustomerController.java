@@ -1,9 +1,12 @@
 package com.example.controller;
 
 import com.example.model.customer.Customer;
+import com.example.model.customer.CustomerDTO;
+import com.example.model.customer.CustomerType;
 import com.example.service.customer.ICustomerService;
 import com.example.service.customer.ICustomerTypeService;
 import jakarta.validation.Valid;
+import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -32,9 +35,16 @@ public class CustomerController {
         return new ModelAndView("customer/list", "page", customerService.showList(pageable));
     }
 
+    /*    @GetMapping("/create")
+        public ModelAndView showFormCreate() {
+            ModelAndView modelAndView = new ModelAndView("customer/create", "customer", new Customer());
+            modelAndView.addObject("customerType", customerTypeService.showList());
+            modelAndView.addObject("title", "Create new customer: ");
+            return modelAndView;
+        }*/
     @GetMapping("/create")
     public ModelAndView showFormCreate() {
-        ModelAndView modelAndView = new ModelAndView("customer/create", "customer", new Customer());
+        ModelAndView modelAndView = new ModelAndView("customer/create", "customer", new CustomerDTO());
         modelAndView.addObject("customerType", customerTypeService.showList());
         modelAndView.addObject("title", "Create new customer: ");
         return modelAndView;
@@ -47,7 +57,7 @@ public class CustomerController {
         return "redirect:/customer/list";
     }*/
 
-    @PostMapping("/save")
+/*    @PostMapping("/save")
     public String save(@Valid @ModelAttribute("customer") Customer customer,BindingResult bindingResult, RedirectAttributes redirectAttributes,  Model model) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("customer", customer);
@@ -56,7 +66,23 @@ public class CustomerController {
         customerService.save(customer);
         redirectAttributes.addFlashAttribute("message", "Saved");
         return "redirect:/customer/list";
+    }*/
+
+    @PostMapping("/save")
+    public String save(@Valid @ModelAttribute("customer") CustomerDTO customer, BindingResult bindingResult, RedirectAttributes redirectAttributes, Model model) {
+        new CustomerDTO().validate(customer, bindingResult);
+        if (bindingResult.hasErrors()) {
+            model.addAttribute("customerType", customerTypeService.showList());
+            return "customer/create";
+        }
+        Customer c = new Customer();
+        BeanUtils.copyProperties(customer, c);
+        c.setCustomerType(customerTypeService.findById(customer.getCustomerType()).get());
+        customerService.save(c);
+        redirectAttributes.addFlashAttribute("message", "Saved");
+        return "redirect:/customer/list";
     }
+
 /*
     public String save(@Validated @ModelAttribute("song") Song song, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {

@@ -2,6 +2,7 @@ package com.example.validate_song_infor.controller;
 
 import com.example.validate_song_infor.model.Song;
 import com.example.validate_song_infor.service.ISongService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -43,9 +44,9 @@ public class SongController {
     }
 
     @PostMapping("/update")
-    public String update(@Validated @ModelAttribute("song") Song song, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
+    public String update(@ModelAttribute("song") @Valid Song song, BindingResult bindingResult, Model model, RedirectAttributes redirectAttributes) {
         if (bindingResult.hasErrors()) {
-            model.addAttribute("song", song);
+//            model.addAttribute("song", song);
             return "update";
         }else {
             songService.save(song);
